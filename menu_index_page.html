@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .header {
+            background: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .nav {
+            background: white;
+            padding: 15px 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 130px;
+            z-index: 99;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .nav a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 5px;
+            color: #666;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav a:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section {
+            background: white;
+            margin-bottom: 30px;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 10px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .subsection-title {
+            font-size: 1.3em;
+            color: #666;
+            margin: 30px 0 20px 0;
+            padding-left: 10px;
+            border-left: 3px solid #999;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .menu-item {
+            padding: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .item-name-en {
+            font-size: 1em;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .item-price {
+            color: #666;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        footer {
+            background: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 40px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+        }
+
+        footer p {
+            color: #666;
+            margin: 5px 0;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .nav {
+                top: 110px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Restaurant Menu</h1>
+        <p>Authentic Lao Cuisine & International Dishes</p>
+    </div>
+
+    <div class="nav">
+        <a href="#drinks">Drinks</a>
+        <a href="#juice">Juice</a>
+        <a href="#breakfast">Breakfast</a>
+        <a href="#desserts">Desserts</a>
+        <a href="#quick">Quick Meals</a>
+        <a href="#chicken">Chicken & Duck</a>
+        <a href="#pork">Pork & Beef</a>
+        <a href="#fish">Fish</a>
+        <a href="#seafood">Seafood</a>
+        <a href="#coffee">Coffee</a>
+    </div>
+
+    <div class="container">
+        <!-- DRINKS -->
+        <div id="drinks" class="section">
+            <h2 class="section-title">Cold Beer and Cocktails</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Beer Lao (Cold big bottle)</div>
+                        <div class="item-price">15,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Beer Lao (Cold small bottle/can 330ml)</div>
+                        <div class="item-price">10,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Beer Lao Dark (Cold small bottle 330ml)</div>
+                        <div class="item-price">15,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Beer Lao Gold (Cold small bottle 330ml)</div>
+                        <div class="item-price">15,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Beer Tuborg (Cold small bottle 330ml)</div>
+                        <div class="item-price">15,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">SOMERSBY Apple Cider beer (Cold small bottle 330ml)</div>
+                        <div class="item-price">15,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Laolao cocktail (Iced Lao whisky with lemon & honey)</div>
+                        <div class="item-price">25,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Iced Laolao with pineapple & honey shake</div>
+                        <div class="item-price">20,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Iced Malibu shake with pineapple</div>
+                        <div class="item-price">30,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Pastis with cold drinking water and ice</div>
+                        <div class="item-price">25,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Gin and tonic</div>
+                        <div class="item-price">40,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Vodka 7 up</div>
+                        <div class="item-price">30,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Vodka orange</div>
+                        <div class="item-price">30,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Vodka on the rock with lime (Small glass)</div>
+                        <div class="item-price">25,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Vodka Martini (Small glass)</div>
+                        <div class="item-price">40,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Red wine / White wine (Small glass)</div>
+                        <div class="item-price">30,000 ₭</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">Soft Drinks</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Natural Premium drinking water (350ml)</div>
+                        <div class="item-price">3,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Natural Premium drinking water (600ml)</div>
+                        <div class="item-price">4,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Natural Premium drinking water (1.5L)</div>
+                        <div class="item-price">8,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Can of soft drink: Pepsi, 7up, Coke, Ice tea</div>
+                        <div class="item-price">8,000 ₭</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- JUICE -->
+        <div id="juice" class="section">
+            <h2 class="section-title">Fresh Fruit Juice and Shakes</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Fresh young coconut juice</div>
+                        <div class="item-price">15,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Iced fresh pineapple juice</div>
+                        <div class="item-price">15,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Iced fresh lemon juice with honey</div>
+                        <div class="item-price">15,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Iced fresh orange juice</div>
+                        <div class="item-price">15,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Iced fresh ginger tea with lemon & honey</div>
+                        <div class="item-price">15,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Iced lemon grass with lemon + honey</div>
+                        <div class="item-price">15,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Soda and lemon</div>
+                        <div class="item-price">8,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Iced coffee with milk shake</div>
+                        <div class="item-price">15,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Iced chocolate with milk shake</div>
+                        <div class="item-price">15,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Iced bananas with milk shake</div>
+                        <div class="item-price">15,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Iced bananas with lemon & honey shake</div>
+                        <div class="item-price">15,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Iced bananas with chocolate & milk shake</div>
+                        <div class="item-price">15,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Iced pineapple with milk shake</div>
+                        <div class="item-price">15,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Iced mango with milk shake</div>
+                        <div class="item-price">15,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Iced Yoghurt shake bananas</div>
+                        <div class="item-price">15,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Iced Yoghurt shake pineapple</div>
+                        <div class="item-price">15,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Iced Yoghurt shake mango</div>
+                        <div class="item-price">15,000 ₭</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">Hot Tea</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Hot tea (Chinese green tea / Lipton tea)</div>
+                        <div class="item-price">6,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Hot fresh ginger tea with lemon & honey</div>
+                        <div class="item-price">6,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Hot lemon grass with lemon + honey</div>
+                        <div class="item-price">6,000 ₭</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BREAKFAST -->
+        <div id="breakfast" class="section">
+            <h2 class="section-title">Breakfast</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Asian breakfast (Rice soup, Fried chicken with ginger, Fried eggs, Orange juice & Coffee or hot tea)</div>
+                        <div class="item-price">50,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">American breakfast (Baguette, Fried eggs, hams, Butter, Jam, orange juice & Coffee or hot tea)</div>
+                        <div class="item-price">50,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Continental breakfast (Baguette, Fried eggs, Fruits, Butter, Jam, Orange juice & Coffee or hot tea)</div>
+                        <div class="item-price">50,000 ₭</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DESSERTS -->
+        <div id="desserts" class="section">
+            <h2 class="section-title">Sandwiches & Desserts</h2>
+            <h3 class="subsection-title">Sandwiches</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Baguette tuna with tomatoes (sandwich)</div>
+                        <div class="item-price">20,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Baguette with fried Chicken (sandwich)</div>
+                        <div class="item-price">20,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Baguette with Omelet</div>
+                        <div class="item-price">20,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Baguette with butter & jam</div>
+                        <div class="item-price">15,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Baguette with cheese</div>
+                        <div class="item-price">15,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Baguette with fried vegetables (sandwich)</div>
+                        <div class="item-price">15,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Garlic baguette</div>
+                        <div class="item-price">15,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Omelet</div>
+                        <div class="item-price">20,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Plain baguette</div>
+                        <div class="item-price">5,000 ₭</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">Desserts</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Sweet pineapple</div>
+                        <div class="item-price">30,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Sweet mixed fruit salad with honey</div>
+                        <div class="item-price">30,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Sweet mixed fruit salad with yoghurt</div>
+                        <div class="item-price">30,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Sweet mixed fruit salad with ice cream</div>
+                        <div class="item-price">30,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Pancake bananas with honey</div>
+                        <div class="item-price">30,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Pancake bananas with Chocolate</div>
+                        <div class="item-price">30,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Golden banana fritters with honey</div>
+                        <div class="item-price">30,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Grilled sweet sticky rice with coconut milk & banana</div>
+                        <div class="item-price">30,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Sweet sticky rice with mango</div>
+                        <div class="item-price">30,000 ₭</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- QUICK MEALS -->
+        <div id="quick" class="section">
+            <h2 class="section-title">Quick Meals & Salads</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">French fries</div>
+                        <div class="item-price">30,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Fried peanut</div>
+                        <div class="item-price">20,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Fried rice with vegetable & eggs</div>
+                        <div class="item-price">25,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Fried rice with Chicken & eggs</div>
+                        <div class="item-price">30,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Vegetables Biryani (Fried rice-curry+coconut milk & vegetables)</div>
+                        <div class="item-price">25,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Chicken Biryani (Fried rice with curry + coconut milk & chicken)</div>
+                        <div class="item-price">30,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Deep fried spring rolls with vegetables & eggs</div>
+                        <div class="item-price">25,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Deep fried spring rolls with vegetables + eggs & Chicken</div>
+                        <div class="item-price">30,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Pad Thai with shrimp</div>
+                        <div class="item-price">25,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Noodle soup with Chicken</div>
+                        <div class="item-price">30,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Yellow noodle soup with vegetables and eggs</div>
+                        <div class="item-price">25,000 ₭</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">Salads</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Tuna salad with vegetables</div>
+                        <div class="item-price">30,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Lao green salad with eggs</div>
+                        <div class="item-price">30,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Spicy Papaya salad</div>
+                        <div class="item-price">20,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Spicy cucumber salad</div>
+                        <div class="item-price">20,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Spicy mixed salad (Noodles & mixed vegetables)</div>
+                        <div class="item-price">30,000 ₭</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHICKEN & DUCK -->
+        <div id="chicken" class="section">
+            <h2 class="section-title">Chicken and Duck</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Tomyum chicken (Spicy chicken soup & lemon grass)</div>
+                        <div class="item-price">50,000 ₭</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <div class="item-name-en">Tomsom chicken (Chicken soup in Lao local style)</div>
+                        <div class="item-price">50,000 ₭</div>
